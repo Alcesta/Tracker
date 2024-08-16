@@ -16,20 +16,26 @@ final class TabBarController: UITabBarController {
         let selectedColor = UIColor.ypBlue
         UITabBarItem.appearance().setTitleTextAttributes([NSAttributedString.Key.foregroundColor: normalColor], for: .normal)
         UITabBarItem.appearance().setTitleTextAttributes([NSAttributedString.Key.foregroundColor: selectedColor], for: .selected)
-        self.viewControllers = [setTrackersViewControllers(), setStatisticsViewController()]
+        
+        self.viewControllers = [setTrackersViewController(), setStatisticsViewController()]
     }
-    
-    func setTrackersViewControllers() -> UINavigationController {
+
+    func setTrackersViewController() -> UINavigationController {
         let trackersViewController = TrackersViewController()
         trackersViewController.tabBarItem = UITabBarItem(
-        title: "Трекеры", image: UIImage(named: "tab_trackers"), selectedImage: nil)
+            title: "Трекеры",
+            image: UIImage(named: "tab_trackers"),
+            selectedImage: nil)
         return UINavigationController(rootViewController: trackersViewController)
     }
-    
+
     func setStatisticsViewController() -> UINavigationController {
         let statisticsViewController = StatisticsViewController()
         statisticsViewController.tabBarItem = UITabBarItem(
-        title: "Статистика", image: UIImage(named: "tab_statistics"), selectedImage: nil)
+            title: "Статистика",
+            image:  UIImage(named: "tab_statistics"),
+            selectedImage: nil)
+       
         return UINavigationController(rootViewController: statisticsViewController)
     }
 }
