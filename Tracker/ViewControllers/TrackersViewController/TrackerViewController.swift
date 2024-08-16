@@ -48,7 +48,7 @@ final class TrackersViewController: UIViewController {
         label.font = .systemFont(ofSize: 12, weight: .medium)
         label.numberOfLines = 2
         label.textAlignment = .center
-        label.textColor = .ypBlack
+        label.textColor = .Black
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
     }()
@@ -65,15 +65,15 @@ final class TrackersViewController: UIViewController {
         label.text = "Ничего нет"
         label.font = .systemFont(ofSize: 12, weight: .medium)
         label.numberOfLines = 2
-        label.textColor = .ypBlack
+        label.textColor = .Black
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
     }()
     
     private lazy var searchTextField: UISearchTextField = {
         let textField = UISearchTextField()
-        textField.textColor = .ypBlack
-        textField.tintColor = .ypBlack
+        textField.textColor = .Black
+        textField.tintColor = .Black
         textField.font = .systemFont(ofSize: 17, weight: .medium)
         textField.translatesAutoresizingMaskIntoConstraints = false
         textField.placeholder = "Search"
@@ -88,7 +88,7 @@ final class TrackersViewController: UIViewController {
         dpicker.preferredDatePickerStyle = .compact
         dpicker.locale = Locale(identifier: "ru_RU")
         dpicker.calendar.firstWeekday = 2
-        dpicker.tintColor = .ypBlue
+        dpicker.tintColor = .Blue
         dpicker.addTarget(self, action: #selector(datePickerValueChanged), for: .valueChanged)
         dpicker.translatesAutoresizingMaskIntoConstraints = false
         dpicker.heightAnchor.constraint(equalToConstant: 34).isActive = true
@@ -108,7 +108,7 @@ final class TrackersViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        view.backgroundColor = .ypWhite
+        view.backgroundColor = .White
         trackersCollectionView.delegate = self
         trackersCollectionView.dataSource = self
         addElements()
@@ -197,7 +197,7 @@ final class TrackersViewController: UIViewController {
             target: self,
             action: #selector(self.addTask)
         )
-        leftButton.tintColor = .ypBlack
+        leftButton.tintColor = .Black
         navigationItem.leftBarButtonItem = leftButton
         
         let rightButton = UIBarButtonItem(customView: datePicker)

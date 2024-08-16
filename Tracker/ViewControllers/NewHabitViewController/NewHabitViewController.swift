@@ -13,17 +13,18 @@ protocol NewHabitViewControllerDelegate: AnyObject {
 }
 
 final class NewHabitViewController: UIViewController {
+    
     private  lazy var trackerNameInput: UITextField = {
         let textField = UITextField()
-        textField.textColor = .ypBlack
-        textField.tintColor = .ypBlack
+        textField.textColor = .Black
+        textField.tintColor = .Black
         textField.font = .systemFont(ofSize: 17, weight: .regular)
         textField.translatesAutoresizingMaskIntoConstraints = false
         textField.placeholder = "Введите название трекера"
         textField.leftView = UIView(frame: CGRect(x: 0, y: 0, width: 10, height: textField.frame.height))
         textField.leftViewMode = .always
         textField.clearButtonMode = .whileEditing
-        textField.backgroundColor = .ypLightGray.withAlphaComponent(0.3)
+        textField.backgroundColor = .LightGray.withAlphaComponent(0.3)
         textField.clipsToBounds = true
         textField.layer.cornerRadius = 16
         textField.delegate = self
@@ -33,7 +34,7 @@ final class NewHabitViewController: UIViewController {
     private let restrictiveLabel: UILabel = {
         let label = UILabel()
         label.text = "Ограничение 38 символов"
-        label.textColor = .ypRed
+        label.textColor = .Red
         label.textAlignment = .center
         label.font = .systemFont(ofSize: 17, weight: .regular)
         label.isHidden = true
@@ -43,10 +44,10 @@ final class NewHabitViewController: UIViewController {
     
     private  lazy var createButton: UIButton = {
         let button = UIButton()
-        button.backgroundColor = .ypGray
+        button.backgroundColor = .Gray
         button.isEnabled = false
         button.setTitle("Создать", for: .normal)
-        button.tintColor = .ypWhite
+        button.tintColor = .White
         button.titleLabel?.textAlignment = .center
         button.titleLabel?.font = UIFont.systemFont(ofSize: 16, weight: .medium)
         button.clipsToBounds = true
@@ -60,9 +61,9 @@ final class NewHabitViewController: UIViewController {
         let button = UIButton(type: .system)
         button.backgroundColor = .white
         button.setTitle("Отменить", for: .normal)
-        button.tintColor = .ypRed
+        button.tintColor = .Red
         button.layer.borderWidth = 1
-        button.layer.borderColor = UIColor.ypRed.cgColor
+        button.layer.borderColor = UIColor.Red.cgColor
         button.clipsToBounds = true
         button.layer.cornerRadius = 16
         button.translatesAutoresizingMaskIntoConstraints = false
@@ -94,7 +95,7 @@ final class NewHabitViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        view.backgroundColor = .ypWhite
+        view.backgroundColor = .White
         addElements()
         createNavigationBar()
         setupConstraints()
@@ -153,7 +154,7 @@ final class NewHabitViewController: UIViewController {
             allFullFill = isTrackerNameFilled
         }
         createButton.isEnabled = allFullFill
-        createButton.backgroundColor = allFullFill ? .ypBlack : .ypGray
+        createButton.backgroundColor = allFullFill ? .Black : .Red
     }
     
     // MARK: - @objc Function
@@ -186,7 +187,7 @@ extension NewHabitViewController: UITableViewDataSource {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as? TrackerPropertiesCell else {
             return UITableViewCell()
         }
-        cell.backgroundColor = .ypLightGray.withAlphaComponent(0.3)
+        cell.backgroundColor = .LightGray.withAlphaComponent(0.3)
         let lastCell = eventMode ? 0 : 1
         if indexPath.row == lastCell {
             cell.separatorInset = UIEdgeInsets(top: 0, left: cell.bounds.width, bottom: 0, right: 0)

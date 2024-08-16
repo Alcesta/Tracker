@@ -17,9 +17,9 @@ final class ScheduleViewController: UIViewController {
     //MARK: - Properties
     private  lazy var saveDaysButton: UIButton = {
         let button = UIButton()
-        button.backgroundColor = .ypBlack
+        button.backgroundColor = .Black
         button.setTitle("Готово", for: .normal)
-        button.tintColor = .ypWhite
+        button.tintColor = .White
         button.titleLabel?.textAlignment = .center
         button.titleLabel?.font = UIFont.systemFont(ofSize: 16, weight: .medium)
         button.clipsToBounds = true
@@ -50,7 +50,7 @@ final class ScheduleViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        view.backgroundColor = .ypWhite
+        view.backgroundColor = .White
         scheduleView.dataSource = self
         scheduleView.delegate = self
         addElements()
@@ -86,7 +86,8 @@ final class ScheduleViewController: UIViewController {
     private func setupSwitches() {
         for day in weekdays {
             let switchControl = UISwitch()
-            switchControl.onTintColor = .ypBlue
+            switchControl.onTintColor = .
+            Blue
             switchControl.addTarget(self, action: #selector(switchValueChanged(_:)), for: .valueChanged)
             switches.append(switchControl)
             
@@ -129,7 +130,7 @@ extension ScheduleViewController: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
-        cell.backgroundColor = .ypLightGray.withAlphaComponent(0.3)
+        cell.backgroundColor = .LightGray.withAlphaComponent(0.3)
         if indexPath.row == 6 {
             cell.separatorInset = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: .greatestFiniteMagnitude)
         }

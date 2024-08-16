@@ -8,14 +8,14 @@
 import UIKit
 
 extension UIColor {
-    var ypBlack: UIColor { UIColor(named: "YP Black") ?? UIColor.black }
-    var ypBackground: UIColor { UIColor(named: "YP Background") ?? UIColor.darkGray }
-    var ypWhite: UIColor { UIColor(named: "YP White") ?? UIColor.white }
-    var ypGreen: UIColor { UIColor(named: "YP Green") ?? UIColor.green }
-    var ypBlue: UIColor { UIColor(named: "YP Blue") ?? UIColor.blue }
-    var ypRed: UIColor { UIColor(named: "YP Red") ?? UIColor.red }
-    var ypGray: UIColor { UIColor(named: "YP Gray") ?? UIColor.gray }
-    var ypLightGray: UIColor { UIColor(named: "YP Light Gray") ?? UIColor.lightGray }
+    static var Black: UIColor { UIColor(named: "YP Black") ?? UIColor.black }
+    static var Background: UIColor { UIColor(named: "YP Background") ?? UIColor.darkGray }
+    static var White: UIColor { UIColor(named: "YP White") ?? UIColor.white }
+    static var ypGreen: UIColor { UIColor(named: "YP Green") ?? UIColor.green }
+    static var Blue: UIColor { UIColor(named: "YP Blue") ?? UIColor.blue }
+    static var Red: UIColor { UIColor(named: "YP Red") ?? UIColor.red }
+    static var Gray: UIColor { UIColor(named: "YP Gray") ?? UIColor.gray }
+    static var LightGray: UIColor { UIColor(named: "YP Light Gray") ?? UIColor.lightGray }
     static var ColorSelection1: UIColor { UIColor(named: "Color selection 1")!}
     static var ColorSelection2: UIColor { UIColor(named: "Color selection 2")!}
     static var ColorSelection3: UIColor { UIColor(named: "Color selection 3")!}

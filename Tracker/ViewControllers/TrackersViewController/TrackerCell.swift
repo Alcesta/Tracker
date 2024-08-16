@@ -22,8 +22,8 @@ final class TrackerCell: UICollectionViewCell {
     
     private let taskTitleLabel: UILabel = {
         let label = UILabel()
-        label.text = "Cпорт"
-        label.textColor = .ypWhite
+        label.text = "Уборка"
+        label.textColor = .White
         label.font = .systemFont(ofSize: 12, weight: .medium)
         label.numberOfLines = 0
         label.translatesAutoresizingMaskIntoConstraints = false
@@ -32,7 +32,7 @@ final class TrackerCell: UICollectionViewCell {
     
     private let emojiLabel: UILabel = {
         let label = UILabel()
-        label.backgroundColor = .ypWhite.withAlphaComponent(0.3)
+        label.backgroundColor = .White.withAlphaComponent(0.3)
         label.font = .systemFont(ofSize: 16, weight: .medium)
         label.clipsToBounds = true
         label.layer.cornerRadius = 12
@@ -46,7 +46,7 @@ final class TrackerCell: UICollectionViewCell {
         let pointSize = UIImage.SymbolConfiguration(pointSize: 11)
         let image = UIImage(systemName: "plus", withConfiguration: pointSize)
         button.setImage(image, for: .normal)
-        button.tintColor = .ypWhite
+        button.tintColor = .White
         button.clipsToBounds = true
         button.layer.cornerRadius = 17
         button.translatesAutoresizingMaskIntoConstraints = false
@@ -64,7 +64,7 @@ final class TrackerCell: UICollectionViewCell {
     
     private let counterLabel: UILabel = {
         let label = UILabel()
-        label.textColor = .ypBlack
+        label.textColor = .Black
         label.text = "0 дней"
         label.font = .systemFont(ofSize: 12, weight: .medium)
         label.textAlignment = .left
@@ -88,7 +88,7 @@ final class TrackerCell: UICollectionViewCell {
         fatalError("init(coder:) has not been implemented")
     }
     
-    func configure(with tracker: Tracker, isCompletedToday: Bool, completedDays: Int, indexPath: IndexPath){
+    func configure(with tracker: Tracker, isCompletedToday: Bool, completedDays: Int, indexPath: IndexPath) {
         self.trackerId = tracker.id
         self.isCompletedToday = isCompletedToday
         self.indexPath = indexPath

@@ -18,7 +18,7 @@ final class TrackerPropertiesCell: UITableViewCell {
     private let propertiesTitleLabel: UILabel = {
         let label = UILabel()
         label.text = "Категория"
-        label.textColor = .ypBlack
+        label.textColor = .Black
         label.font = .systemFont(ofSize: 17, weight: .regular)
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
@@ -26,7 +26,7 @@ final class TrackerPropertiesCell: UITableViewCell {
     
     private let detailsLabel: UILabel = {
         let label = UILabel()
-        label.textColor = .ypGray
+        label.textColor = .Gray
         label.font = .systemFont(ofSize: 17, weight: .regular)
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
