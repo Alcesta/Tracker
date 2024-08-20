@@ -23,7 +23,7 @@ final class StatisticsViewController: UIViewController {
         label.text = "Анализировать пока нечего"
         label.font = .systemFont(ofSize: 12, weight: .medium)
         label.textAlignment = .center
-        label.textColor = UIColor(named: "Black")
+        label.textColor = UIColor(named: "black")
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
     }()
@@ -38,7 +38,7 @@ final class StatisticsViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        view.backgroundColor = .White
+        view.backgroundColor = .white
         
         setupView()
         setupConstraints()

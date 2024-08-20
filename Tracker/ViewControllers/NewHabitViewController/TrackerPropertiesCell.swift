@@ -18,7 +18,7 @@ final class TrackerPropertiesCell: UITableViewCell {
     private let propertiesTitleLabel: UILabel = {
         let label = UILabel()
         label.text = "Категория"
-        label.textColor = .Black
+        label.textColor = .black
         label.font = .systemFont(ofSize: 17, weight: .regular)
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
@@ -40,7 +40,7 @@ final class TrackerPropertiesCell: UITableViewCell {
         return stackView
     }()
     
-    private  lazy var nextButton: UIButton = {
+    private lazy var nextButton: UIButton = {
         let button = UIButton(type: .custom)
         button.setImage(UIImage(named: "chevron"), for: .normal)
         button.translatesAutoresizingMaskIntoConstraints = false
