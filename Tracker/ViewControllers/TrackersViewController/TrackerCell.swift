@@ -23,7 +23,7 @@ final class TrackerCell: UICollectionViewCell {
     private let taskTitleLabel: UILabel = {
         let label = UILabel()
         label.text = "Уборка"
-        label.textColor = .White
+        label.textColor = .white
         label.font = .systemFont(ofSize: 12, weight: .medium)
         label.numberOfLines = 0
         label.translatesAutoresizingMaskIntoConstraints = false
@@ -32,7 +32,7 @@ final class TrackerCell: UICollectionViewCell {
     
     private let emojiLabel: UILabel = {
         let label = UILabel()
-        label.backgroundColor = .White.withAlphaComponent(0.3)
+        label.backgroundColor = .white.withAlphaComponent(0.3)
         label.font = .systemFont(ofSize: 16, weight: .medium)
         label.clipsToBounds = true
         label.layer.cornerRadius = 12
@@ -41,12 +41,12 @@ final class TrackerCell: UICollectionViewCell {
         return label
     }()
     
-    private  lazy var plusButton: UIButton = {
+    private lazy var plusButton: UIButton = {
         let button = UIButton(type: .system)
         let pointSize = UIImage.SymbolConfiguration(pointSize: 11)
         let image = UIImage(systemName: "plus", withConfiguration: pointSize)
         button.setImage(image, for: .normal)
-        button.tintColor = .White
+        button.tintColor = .white
         button.clipsToBounds = true
         button.layer.cornerRadius = 17
         button.translatesAutoresizingMaskIntoConstraints = false
@@ -64,7 +64,7 @@ final class TrackerCell: UICollectionViewCell {
     
     private let counterLabel: UILabel = {
         let label = UILabel()
-        label.textColor = .Black
+        label.textColor = .black
         label.text = "0 дней"
         label.font = .systemFont(ofSize: 12, weight: .medium)
         label.textAlignment = .left

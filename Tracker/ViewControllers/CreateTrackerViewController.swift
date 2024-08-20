@@ -14,12 +14,12 @@ protocol CreateTrackerViewControllerDelegate: AnyObject {
 
 final class CreateTrackerViewController: UIViewController {
     
-    private  lazy var habitButton: UIButton = {
+    private lazy var habitButton: UIButton = {
         let button = UIButton()
-        button.backgroundColor = .Black
+        button.backgroundColor = .black
         button.setTitle("Привычка", for: .normal)
-        button.tintColor = .White
-        button.titleLabel?.textColor = .White
+        button.tintColor = .white
+        button.titleLabel?.textColor = .white
         button.titleLabel?.textAlignment = .center
         button.titleLabel?.font = UIFont.systemFont(ofSize: 16, weight: .medium)
         button.clipsToBounds = true
@@ -29,12 +29,12 @@ final class CreateTrackerViewController: UIViewController {
         return button
     }()
     
-    private  lazy var irregularEventsButton: UIButton = {
+    private lazy var irregularEventsButton: UIButton = {
         let button = UIButton()
-        button.backgroundColor = .Black
+        button.backgroundColor = .black
         button.setTitle("Нерегулярные событие", for: .normal)
-        button.tintColor = .White
-        button.titleLabel?.textColor = .White
+        button.tintColor = .white
+        button.titleLabel?.textColor = .white
         button.titleLabel?.textAlignment = .center
         button.titleLabel?.font = UIFont.systemFont(ofSize: 16, weight: .medium)
         button.clipsToBounds = true
@@ -49,7 +49,7 @@ final class CreateTrackerViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        view.backgroundColor = .White
+        view.backgroundColor = .white
         addElements()
         createNavigationBar()
         setupConstraints()
