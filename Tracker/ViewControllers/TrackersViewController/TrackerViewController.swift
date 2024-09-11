@@ -124,18 +124,12 @@ final class TrackersViewController: UIViewController {
     
     // MARK: - Private Function
     private func conditionStubs() {
-        if categories.isEmpty {
-            trackersCollectionView.isHidden = true
-            stubLabel.isHidden = false
-            stubImageView.isHidden = false
-        } else {
-            trackersCollectionView.isHidden = false
-            stubLabel.isHidden = true
-            stubImageView.isHidden = true
-            notFoundImageView.isHidden = true
-            notFoundLabel.isHidden = true
-        }
-    }
+           trackersCollectionView.isHidden = categories.isEmpty
+           stubLabel.isHidden = !categories.isEmpty
+           stubImageView.isHidden = !categories.isEmpty
+           notFoundImageView.isHidden = !categories.isEmpty
+           notFoundLabel.isHidden = !categories.isEmpty
+       }
     
     private func reloadPlaceholder() {
         if !categories.isEmpty && visibleCategories.isEmpty {
