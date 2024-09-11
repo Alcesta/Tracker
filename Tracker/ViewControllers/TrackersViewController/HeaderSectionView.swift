@@ -8,7 +8,7 @@
 import Foundation
 import UIKit
 
-class HeaderSectionView: UICollectionReusableView {
+final class HeaderSectionView: UICollectionReusableView {
     let titleLabel = UILabel()
     
     override init(frame: CGRect) {
