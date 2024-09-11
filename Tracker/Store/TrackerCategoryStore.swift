@@ -26,7 +26,7 @@ protocol TrackerCategoryStoreDelegate: AnyObject {
 
 final class TrackerCategoryStore: NSObject {
     private let context: NSManagedObjectContext
-    private var fetchedResultsController: NSFetchedResultsController<TrackerCategoryCoreData>!
+    private var fetchedResultsController: NSFetchedResultsController<TrackerCategoryCoreData>?
     private var insertedIndexes: IndexSet?
     private var deletedIndexes: IndexSet?
     private var updatedIndexes: IndexSet?
@@ -35,11 +35,13 @@ final class TrackerCategoryStore: NSObject {
     weak var delegate: TrackerCategoryStoreDelegate?
     
     convenience override init() {
-        let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
-        try! self.init(context: context)
+        guard let context = (UIApplication.shared.delegate as? AppDelegate)?.persistentContainer.viewContext else {
+            fatalError("Can't get context")
+        }
+        self.init(context: context)
     }
     
-    init(context: NSManagedObjectContext) throws {
+    init(context: NSManagedObjectContext) {
         self.context = context
         super.init()
         
@@ -55,12 +57,12 @@ final class TrackerCategoryStore: NSObject {
         )
         controller.delegate = self
         self.fetchedResultsController = controller
-        try controller.performFetch()
+        try? controller.performFetch()
     }
     
     var trackersCategories: [TrackerCategory] {
         guard
-            let objects = self.fetchedResultsController.fetchedObjects,
+            let objects = self.fetchedResultsController?.fetchedObjects,
             let categories = try? objects.map({ try self.getCategories(from: $0) })
         else { return [] }
         return categories
@@ -77,7 +79,7 @@ final class TrackerCategoryStore: NSObject {
                 let tracker = Tracker(
                     id: trackerCoreData.id ?? UUID(),
                     name: trackerCoreData.name ?? "",
-                    color: UIColor(named: trackerCoreData.color!) ?? UIColor(),
+                    color: UIColor(named: trackerCoreData.color ?? "") ?? UIColor(),
                     emoji: trackerCoreData.emoji ?? "",
                     schedule: (DaysValueTransformer().reverseTransformedValue(trackerCoreData.schedule) as? [Weekdays?]) ?? [],
                     dateEvent: trackerCoreData.dateEvent
@@ -100,14 +102,18 @@ extension TrackerCategoryStore: NSFetchedResultsControllerDelegate {
     }
     
     func controllerDidChangeContent(_ controller: NSFetchedResultsController<NSFetchRequestResult>) {
-        delegate?.didUpdate(
-            self,
-            TrackerCategoryStoreUpdate(
-            insertedIndexes: insertedIndexes!,
-            deletedIndexes: deletedIndexes!,
-            updatedIndexes: updatedIndexes!
-        )
-        )
+        if let insertedIndexes = insertedIndexes,
+           let deletedIndexes = deletedIndexes,
+           let updatedIndexes = updatedIndexes {
+            delegate?.didUpdate(
+                self,
+                TrackerCategoryStoreUpdate(
+                    insertedIndexes: insertedIndexes,
+                    deletedIndexes: deletedIndexes,
+                    updatedIndexes: updatedIndexes
+                )
+            )
+        }
         insertedIndexes = nil
         deletedIndexes = nil
         updatedIndexes = nil
