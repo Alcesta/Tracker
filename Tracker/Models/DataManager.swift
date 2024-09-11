@@ -14,19 +14,19 @@ final class DataManager {
 //            trackers: [
 //                Tracker(id: UUID(),
 //                        name: "Уборка",
-//                        color: .ColorSelection4,
+//                        color: .customColorSelection4,
 //                        emoji: "🧹",
 //                        schedule: [.Saturday]),
 //                Tracker(
 //                    id: UUID(),
 //                    name: "Стирка",
-//                    color: .ColorSelection6,
+//                    color: .customColorSelection6,
 //                    emoji: "🧺",
 //                    schedule: [.Monday, .Wednesday, .Friday]),
 //                Tracker(
 //                    id: UUID(),
 //                    name: "Поливка растений",
-//                    color: .ColorSelection7,
+//                    color: .customColorSelection7,
 //                    emoji: "🌷",
 //                    schedule: [.Monday, .Wednesday, .Sunday]),
 //            ]),
@@ -36,19 +36,19 @@ final class DataManager {
 //                Tracker(
 //                    id: UUID(),
 //                    name: "Прогулки",
-//                    color: .ColorSelection12,
+//                    color: .customColorSelection12,
 //                    emoji: "🚶‍♀️",
 //                    schedule: [.Monday, .Wednesday, .Friday, .Sunday]),
 //                Tracker(
 //                    id: UUID(),
 //                    name: "Просмотр фильма",
-//                    color: .ColorSelection9,
+//                    color: .customColorSelection9,
 //                    emoji: "📺",
 //                    schedule: [.Friday, .Sunday]),
 //                Tracker(
 //                    id: UUID(),
 //                    name: "Посиделки с друзьями",
-//                    color: .ColorSelection10,
+//                    color: .customColorSelection10,
 //                    emoji: "🥂",
 //                    schedule: [.Saturday]),
 //            ])

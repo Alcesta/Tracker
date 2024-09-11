@@ -9,7 +9,7 @@ import Foundation
 import UIKit
 
 protocol CreateTrackerViewControllerDelegate: AnyObject {
-    func updateListOfTrackers(newTracker: TrackerCategory)
+    func addNewTrackers(newTracker: TrackerCategory)
 }
 
 final class CreateTrackerViewController: UIViewController {
@@ -100,7 +100,7 @@ final class CreateTrackerViewController: UIViewController {
 
 extension CreateTrackerViewController: NewHabitViewControllerDelegate {
     func addNewTracker(newTracker: TrackerCategory) {
-        delegate?.updateListOfTrackers(newTracker: newTracker)
+        delegate?.addNewTrackers(newTracker: newTracker)
         if let navController = self.navigationController {
             navController.dismiss(animated: true, completion: nil)
             dismiss(animated: true, completion: nil)
