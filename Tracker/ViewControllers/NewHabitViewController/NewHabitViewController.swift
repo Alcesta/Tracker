@@ -290,14 +290,14 @@ final class NewHabitViewController: UIViewController {
     }
     
     private func checkFullFill() {
-        var allFullFill = false
-        if eventMode == false {
+        var allFullFill: Bool
+        if !eventMode {
             allFullFill = !schedule.isEmpty && isTrackerNameFilled
         } else {
             allFullFill = isTrackerNameFilled
         }
         createButton.isEnabled = allFullFill
-        createButton.backgroundColor = allFullFill ? .ypBlack : .ypGray
+        createButton.backgroundColor = allFullFill ? .black : .gray
     }
     
     // MARK: - @objc Function
