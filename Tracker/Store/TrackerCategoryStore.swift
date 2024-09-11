@@ -68,7 +68,7 @@ final class TrackerCategoryStore: NSObject {
         return categories
     }
 
-    func getCategories(from trackerCategoryStore: TrackerCategoryCoreData) throws -> TrackerCategory {
+    private func getCategories(from trackerCategoryStore: TrackerCategoryCoreData) throws -> TrackerCategory {
         guard let title = trackerCategoryStore.title else {
             throw TrackerCategoryStoreError.decodingErrorInvalidTitle
         }

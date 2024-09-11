@@ -50,7 +50,7 @@ final class TrackerRecordStore: NSObject {
         try context.save()
     }
     
-    func fetchRecord(id: UUID, date: Date) throws -> TrackerRecordCoreData? {
+    private func fetchRecord(id: UUID, date: Date) throws -> TrackerRecordCoreData? {
         let fetchRequest: NSFetchRequest<TrackerRecordCoreData> = TrackerRecordCoreData.fetchRequest()
         fetchRequest.predicate = NSPredicate(format: "id == %@ AND date == %@", id as CVarArg, date as CVarArg)
         do {

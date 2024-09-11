@@ -40,7 +40,7 @@ final class TrackerStore: NSObject {
         try context.save()
     }
 
-    func updateExistingTrackers(_ trackerCoreData: TrackerCoreData, with tracker: Tracker) {
+    private func updateExistingTrackers(_ trackerCoreData: TrackerCoreData, with tracker: Tracker) {
         guard let (colorString, _) = colorDictionary.first(where: { $0.value == tracker.color }) else { return }
         trackerCoreData.id = tracker.id
         trackerCoreData.name = tracker.name
@@ -50,7 +50,7 @@ final class TrackerStore: NSObject {
         trackerCoreData.dateEvent = tracker.dateEvent
     }
     
-    func fetchCategory(with title: String) throws -> TrackerCategoryCoreData? {
+    private func fetchCategory(with title: String) throws -> TrackerCategoryCoreData? {
         let fetchRequest: NSFetchRequest<TrackerCategoryCoreData> = TrackerCategoryCoreData.fetchRequest()
         fetchRequest.predicate = NSPredicate(format: "title == %@", title)
         
