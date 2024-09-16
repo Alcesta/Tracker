@@ -9,15 +9,20 @@ import Foundation
 
 extension Int {
     func days() -> String {
+        guard self >= 0 else {
+            return "Некорректное значение"
+        }
         let remainder10 = self % 10
         let remainder100 = self % 100
         
-        if remainder10 == 1 && remainder100 != 11 {
+        switch (remainder10, remainder100) {
+        case (1, _) where remainder100 != 11:
             return "\(self) день"
-        } else if remainder10 >= 2 && remainder10 <= 4 && (remainder100 < 10 || remainder100 >= 20) {
+        case (2...4, _) where !(11...14 ~= remainder100):
             return "\(self) дня"
-        } else {
+        default:
             return "\(self) дней"
+            
         }
     }
 }

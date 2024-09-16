@@ -26,7 +26,7 @@ final class TrackerPropertiesCell: UITableViewCell {
     
     private let detailsLabel: UILabel = {
         let label = UILabel()
-        label.textColor = .Gray
+        label.textColor = .gray
         label.font = .systemFont(ofSize: 17, weight: .regular)
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
@@ -103,4 +103,3 @@ final class TrackerPropertiesCell: UITableViewCell {
         delegate?.nextButtonTapped(at: indexPath)
     }
 }
-

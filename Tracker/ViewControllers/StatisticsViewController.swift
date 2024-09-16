@@ -51,15 +51,16 @@ final class StatisticsViewController: UIViewController {
     }
     
     
-    private func setupConstraints() {
-        stubImageView.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
-        stubImageView.centerYAnchor.constraint(equalTo: view.centerYAnchor).isActive = true
-        stubImageView.widthAnchor.constraint(equalToConstant: 80).isActive = true
-        stubImageView.heightAnchor.constraint(equalToConstant: 80).isActive = true
-        
-        stubLabel.topAnchor.constraint(equalTo: stubImageView.bottomAnchor, constant: 8).isActive = true
-        stubLabel.leftAnchor.constraint(equalTo: view.leftAnchor, constant: 16).isActive = true
-        stubLabel.rightAnchor.constraint(equalTo: view.rightAnchor, constant: -16).isActive = true
-        stubLabel.heightAnchor.constraint(equalToConstant: 18).isActive = true
+    private func setupConstraints(){
+        NSLayoutConstraint.activate([
+            stubImageView.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+            stubImageView.centerYAnchor.constraint(equalTo: view.centerYAnchor),
+            stubImageView.widthAnchor.constraint(equalToConstant: 80),
+            stubImageView.heightAnchor.constraint(equalToConstant: 80),
+            stubLabel.topAnchor.constraint(equalTo: stubImageView.bottomAnchor, constant: 8),
+            stubLabel.leftAnchor.constraint(equalTo: view.leftAnchor, constant: 16),
+            stubLabel.rightAnchor.constraint(equalTo: view.rightAnchor, constant: -16),
+            stubLabel.heightAnchor.constraint(equalToConstant: 18)
+        ])
     }
 }
