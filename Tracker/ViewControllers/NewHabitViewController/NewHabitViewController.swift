@@ -339,6 +339,8 @@ extension NewHabitViewController: UITableViewDataSource {
         if indexPath.row == 1 {
             let detailsText = schedule.count == 7 ? "Каждый день" : schedule.map { $0!.shortDayName }.joined(separator: ", ")
             cell.setup(detailsText: detailsText)
+        } else {
+            cell.setup(detailsText: categoryTitle)
         }
         cell.delegate = self
         return cell
@@ -366,6 +368,12 @@ extension NewHabitViewController: TrackerPropertiesCellDelegate {
             scheduleVC.initialSelectedWeekdays = schedule
             let navVC = UINavigationController(rootViewController: scheduleVC)
             present(navVC, animated: true)
+        } else {
+            let listOfCategoriesVC = ListOfCategoriesViewController()
+            listOfCategoriesVC.selectedCategory = categoryTitle
+            listOfCategoriesVC.delegate = self
+            let navVC = UINavigationController(rootViewController: listOfCategoriesVC)
+            present(navVC, animated: true)
         }
     }
 }
@@ -384,6 +392,23 @@ extension NewHabitViewController: UITextFieldDelegate {
         let maxLength = 38
         restrictiveLabel.isHidden = newText.count < maxLength
         return newText.count <= maxLength
+    }
+    
+    func textFieldDidChangeSelection(_ textField: UITextField) {
+        guard let newText = textField.text else {
+            return
+        }
+        isTrackerNameFilled = !newText.isEmpty
+        checkFullFill()
+    }
+}
+
+// MARK: - Extension ListOfCategoriesDelegate
+extension NewHabitViewController: ListOfCategoriesDelegate {
+    func didSelectCategory(_ category: String) {
+        categoryTitle = category
+        trackerProperties.reloadData()
+        checkFullFill()
     }
 }
 
@@ -446,6 +471,7 @@ extension NewHabitViewController: UICollectionViewDelegateFlowLayout {
             cell?.contentView.layer.borderWidth = 3
             cell?.contentView.layer.borderColor = color?.withAlphaComponent(0.3).cgColor
         }
+        checkFullFill()
     }
     
     func collectionView(_ collectionView: UICollectionView, didDeselectItemAt indexPath: IndexPath) {
