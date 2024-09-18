@@ -73,4 +73,8 @@ enum Weekdays: String, CaseIterable, Codable {
             return 7
         }
     }
+    
+    static func fromNumberValue(_ number: Int) -> String {
+        return Weekdays.allCases.first { $0.numberValue == number }!.rawValue
+    }
 }

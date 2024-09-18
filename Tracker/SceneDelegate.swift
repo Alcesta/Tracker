@@ -15,8 +15,12 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
         guard let windowScene = (scene as? UIWindowScene) else { return }
         window = UIWindow(windowScene: windowScene)
-        window?.rootViewController = TabBarController()
-        window?.makeKeyAndVisible()
+        let isFirstLaunch = UserDefaults.standard.object(forKey: Key.isFirstLaunch.rawValue)
+        if isFirstLaunch != nil {
+            showTrackerViewController()
+        } else {
+            showOnboardingScreen()
+        }
     }
 
     func sceneDidDisconnect(_ scene: UIScene) {
@@ -46,7 +50,20 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         // Use this method to save data, release shared resources, and store enough scene-specific state information
         // to restore the scene back to its current state.
     }
-
-
+    
+    private func showTrackerViewController() {
+        let tabBarController = TabBarController()
+        window?.rootViewController = tabBarController
+        window?.makeKeyAndVisible()
+    }
+    
+    private func showOnboardingScreen() {
+        let pageViewController = PageViewController(transitionStyle: .scroll, navigationOrientation: .horizontal, options: nil)
+        window?.rootViewController = pageViewController
+        window?.makeKeyAndVisible()
+    }
 }
 
+enum Key: String {
+    case isFirstLaunch
+}
